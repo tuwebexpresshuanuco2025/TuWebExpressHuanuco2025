@@ -1,60 +1,62 @@
-const form = document.getElementById("commentForm");
-const commentsList = document.getElementById("commentsList");
-const alertBox = document.getElementById("alert");
-let comments = JSON.parse(localStorage.getItem("comments")) || [];
+const form = document.getElementById('commentForm');
+const commentsList = document.getElementById('commentsList');
+const alertBox = document.getElementById('alert');
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
 
-function showAlert(message, duration = 3000) {
+function showAlert(message, duration=3000){
     alertBox.innerText = message;
-    alertBox.style.display = "block";
-    alertBox.style.opacity = "1";
-    setTimeout(() => {
-        alertBox.style.transition = "opacity 0.5s ease";
-        alertBox.style.opacity = "0";
-        setTimeout(() => {
-            alertBox.style.display = "none";
-            alertBox.style.transition = "";
-        }, 500);
-    }, duration);
+    alertBox.style.display = 'block';
+    setTimeout(()=>{alertBox.style.display='none';}, duration);
 }
 
-function addCommentToDOM(name, message, prepend = false) {
-    const commentDiv = document.createElement("div");
-    commentDiv.classList.add("comment");
-    commentDiv.innerHTML = `
-        <strong>${name}</strong>
-        <p>${message}</p>
-        <button class="delete-btn">Eliminar</button>
-    `;
-    const deleteBtn = commentDiv.querySelector(".delete-btn");
-    deleteBtn.addEventListener("click", () => {
-        comments = comments.filter(c => !(c.name === name && c.message === message));
-        localStorage.setItem("comments", JSON.stringify(comments));
-        commentDiv.remove();
-        showAlert("Comentario eliminado");
+function saveComments(){
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+function createDeleteButton(index){
+    const btn = document.createElement('button');
+    btn.classList.add('delete-btn');
+    btn.innerText = 'Eliminar';
+    btn.addEventListener('click', ()=>{
+        comments.splice(index, 1);
+        saveComments();
+        renderComments();
+        showAlert('Comentario eliminado');
     });
-
-    if (prepend) {
-        commentsList.prepend(commentDiv);
-    } else {
-        commentsList.appendChild(commentDiv);
-    }
+    return btn;
 }
 
-// Cargar comentarios existentes
-comments.forEach(c => addCommentToDOM(c.name, c.message));
+function addCommentToDOM(name, message, index){
+    const commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment');
+    const contentDiv = document.createElement('div');
+    contentDiv.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+    commentDiv.appendChild(contentDiv);
+    commentDiv.appendChild(createDeleteButton(index));
+    commentsList.appendChild(commentDiv);
+}
 
-form.addEventListener("submit", (e) => {
+function renderComments(){
+    commentsList.innerHTML = '';
+    comments.forEach((c, i) => addCommentToDOM(c.name, c.message, i));
+}
+
+renderComments();
+
+form.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !message) {
-        showAlert("Por favor completa todos los campos");
+    const name = document.getElementById('name').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if(!name || !message){
+        showAlert('Por favor completa todos los campos');
         return;
     }
-
-    const comment = { name, message };
-    comments.unshift(comment);
+    comments.unshift({name, message});
+    saveComments();
+    renderComments();
+    form.reset();
+    showAlert('Comentario enviado correctamente');
+});    comments.unshift(comment);
     localStorage.setItem("comments", JSON.stringify(comments));
     addCommentToDOM(name, message, true);
     form.reset();
