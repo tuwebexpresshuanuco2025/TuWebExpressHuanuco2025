@@ -1,38 +1,46 @@
 # TuWebExpress Huánuco
 
-Bienvenido a **TuWebExpress Huánuco**, tu socio estratégico en desarrollo web profesional. Creamos sitios modernos, funcionales y altamente personalizados, pensados para empresas, emprendedores y servicios de ingeniería. Nuestro enfoque combina estética, usabilidad y rendimiento, asegurando que tu presencia digital destaque y genere resultados reales.
-
-## Características principales
-
-- Diseño web **responsivo y adaptativo** para móviles, tablets y desktop  
-- Integración con **Facebook, Instagram y WhatsApp**  
-- Formularios interactivos con **validación y alertas dinámicas**  
-- Comentarios de usuarios con almacenamiento **localStorage**  
-- Animaciones suaves y efectos modernos para mejorar la experiencia  
-- Optimización de carga y rendimiento  
-- Soporte profesional y mantenimiento técnico  
-- Configuración para **dominio propio y SEO básico**  
+Bienvenido a **TuWebExpress Huánuco**, tu solución profesional para páginas web elegantes y funcionales. Creamos sitios web personalizados para empresas, emprendedores y servicios de ingeniería, asegurando que tu negocio tenga presencia online destacada y moderna.
 
 ## Servicios
 
-- Desarrollo de sitios web personalizados  
-- Tiendas en línea y catálogos de productos  
-- Landing pages para promoción de productos y servicios  
-- Blogs corporativos y personales  
-- Integración de pasarelas de pago y sistemas de contacto directo  
-- Actualización y mantenimiento de sitios existentes  
+- Diseño web personalizado y responsivo  
+- Integración con redes sociales  
+- Botones de contacto directo  
+- Optimización para dispositivos móviles  
+- Soporte profesional y mantenimiento continuo  
+- Implementación de SEO básico  
+- Formularios de contacto interactivos con alertas  
+- Sistema de comentarios con almacenamiento local  
 
-## Beneficios
+## Portafolio
 
-- Presencia online profesional y moderna  
-- Experiencia de usuario mejorada y diseño atractivo  
-- Conexión directa con clientes vía WhatsApp, correo y redes sociales  
-- Fácil administración de comentarios y contenido  
-- Compatible con todos los navegadores y dispositivos  
+Nuestros proyectos destacan por su diseño limpio, minimalista y profesional:
+
+| Proyecto         | Descripción |
+|-----------------|-------------|
+| Sitio Corporativo | Página elegante para empresas |
+| Landing Page      | Orientada a conversión de clientes |
+| E-commerce        | Tienda online responsiva |
+| Blog Profesional  | Contenido estructurado y optimizado |
+
+## Sistema de Comentarios
+
+Permite agregar comentarios fácilmente con validación de campos obligatorios, almacenamiento local y alertas visuales.
+
+## Estructura de Archivos
+
+| Archivo       | Descripción |
+|---------------|-------------|
+| `index.html`  | Página principal del sitio web |
+| `index.css`   | Estilos de diseño elegante y responsivo |
+| `index.js`    | Funcionalidad de comentarios y alertas |
+| `logo.png`    | Logo oficial de TuWebExpress Huánuco |
+| `README.md`   | Información completa del proyecto |
 
 ## Contacto
 
-Contáctanos para llevar tu negocio al siguiente nivel digital:
+Contáctanos para crear tu página web hoy mismo:
 
 - **Correo:** [tuwebexpresshuanuco2025@gmail.com](mailto:tuwebexpresshuanuco2025@gmail.com)  
 - **Teléfono / WhatsApp:** +51 981601075  
@@ -40,18 +48,23 @@ Contáctanos para llevar tu negocio al siguiente nivel digital:
 - **Instagram:** [TuWebExpress Huánuco](https://www.instagram.com/TuWebExpressHuanuco)  
 - **Sitio web:** [https://tuwebexpresshuanuco.netlify.app/](https://tuwebexpresshuanuco.netlify.app/)  
 
-## Estructura del proyecto
+## Hecho con ❤️ por  
+**TuWebExpress Huánuco**  
+_"Llevamos tu marca al siguiente nivel digital."_  
 
-| Archivo | Función |
-|---------|---------|
-| `index.html` | Página principal con estructura completa, secciones y enlaces sociales |
-| `style.css` | Estilos modernos, fondo oscuro, tipografía elegante y animaciones |
-| `index.js` | Lógica interactiva: comentarios, alertas y validaciones |
-| `logo.png` | Logotipo oficial de TuWebExpress Huánuco |
-| `README.md` | Documentación completa y guía del proyecto |
-| `favicon.ico` | Ícono del sitio web para navegador |
-| `assets/` | Carpeta con imágenes, iconos y recursos adicionales |
-| `fonts/` | Tipografías personalizadas para mejorar el diseño |
+© 2025 TuWebExpress Huánuco — Todos los derechos reservados.nuco.netlify.app/](https://tuwebexpresshuanuco.netlify.app/)  
+
+## Nota
+
+El dominio personalizado o hosting premium puede tener un costo adicional, gestionado mediante proveedores externos como Google Domains o Netlify.
+
+---
+
+## ❤️ Hecho con pasión por  
+**TuWebExpress Huánuco**  
+_"Llevamos tu marca al siguiente nivel digital."_
+
+© 2025 TuWebExpress Huánuco — Todos los derechos reservados.lizadas para mejorar el diseño |
 
 ## Tecnologías utilizadas
 
