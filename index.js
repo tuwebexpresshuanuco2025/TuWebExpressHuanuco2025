@@ -9,39 +9,25 @@ function showAlert(message, duration=3000){
     setTimeout(()=>{alertBox.style.display='none';}, duration);
 }
 
-function saveComments(){
-    localStorage.setItem('comments', JSON.stringify(comments));
-}
-
-function createDeleteButton(index){
-    const btn = document.createElement('button');
-    btn.classList.add('delete-btn');
-    btn.innerText = 'Eliminar';
-    btn.addEventListener('click', ()=>{
-        comments.splice(index, 1);
-        saveComments();
-        renderComments();
-        showAlert('Comentario eliminado');
-    });
-    return btn;
-}
-
-function addCommentToDOM(name, message, index){
+function addCommentToDOM(name, message, prepend=false){
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment');
-    const contentDiv = document.createElement('div');
-    contentDiv.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
-    commentDiv.appendChild(contentDiv);
-    commentDiv.appendChild(createDeleteButton(index));
-    commentsList.appendChild(commentDiv);
+    commentDiv.innerHTML = `<strong>${name}</strong><p>${message}</p><button class="delete-btn">Eliminar</button>`;
+    const deleteBtn = commentDiv.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', ()=>{
+        comments = comments.filter(c=>c.name!==name || c.message!==message);
+        localStorage.setItem('comments', JSON.stringify(comments));
+        commentDiv.remove();
+        showAlert('Comentario eliminado');
+    });
+    if(prepend){
+        commentsList.prepend(commentDiv);
+    } else {
+        commentsList.appendChild(commentDiv);
+    }
 }
 
-function renderComments(){
-    commentsList.innerHTML = '';
-    comments.forEach((c, i) => addCommentToDOM(c.name, c.message, i));
-}
-
-renderComments();
+comments.forEach(c => addCommentToDOM(c.name, c.message));
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -51,7 +37,13 @@ form.addEventListener('submit', (e)=>{
         showAlert('Por favor completa todos los campos');
         return;
     }
-    comments.unshift({name, message});
+    const comment = {name, message};
+    comments.unshift(comment);
+    localStorage.setItem('comments', JSON.stringify(comments));
+    addCommentToDOM(name, message, true);
+    form.reset();
+    showAlert('Comentario enviado correctamente');
+});ssage});
     saveComments();
     renderComments();
     form.reset();
