@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TuWebExpress Huánuco - Premium Web Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body, html {margin:0;padding:0;font-family:'Montserrat',sans-serif;background:#000;color:#fff;scroll-behavior:smooth;overflow-x:hidden;}
+header {display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;text-align:center;position:relative;overflow:hidden;}
+header::before {content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:url('https://images.unsplash.com/photo-1601597112139-4b53fbd9ef0a?fit=crop&w=1920&q=80') no-repeat center center/cover;opacity:0.08;z-index:0;transform:scale(1.1);animation:zoom 20s linear infinite;}
+@keyframes zoom {0%{transform:scale(1.1);}50%{transform:scale(1.15);}100%{transform:scale(1.1);}}
+header h1 {font-size:3.8em;font-weight:700;margin-bottom:20px;position:relative;z-index:1;animation:fadeInDown 2s ease-out;color:#0000FF;}
+.links a {color:#fff;text-decoration:none;margin:15px;font-size:1.7em;display:inline-flex;align-items:center;position:relative;transition:0.3s;z-index:1;}
+.links a i {margin-right:10px;font-size:1.7em;}
+.links a:hover {color:#00FFFF;transform:scale(1.2) rotate(-2deg);}
+.contact a {color:#fff;text-decoration:none;transition:0.3s;}
+.contact a:hover {color:#00FFFF;transform:scale(1.1);}
+section {padding:80px 20px;max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+section h2 {font-size:2.8em;margin-bottom:25px;text-transform:uppercase;letter-spacing:1px;animation:fadeInUp 2s;color:#0000FF;}
+section p {font-size:1.15em;line-height:1.8;margin-bottom:30px;opacity:1;}
+.button {display:inline-block;padding:15px 30px;border:2px solid #0000FF;color:#0000FF;text-decoration:none;font-weight:700;transition:0.5s;border-radius:10px;}
+.button:hover {background:#0000FF;color:#fff;transform:scale(1.1) rotate(-2deg);}
+.comments-form {display:flex;flex-direction:column;gap:15px;margin-top:30px;}
+.comments-form input, .comments-form textarea {padding:10px;border-radius:8px;border:none;resize:none;font-family:'Montserrat',sans-serif;}
+.comments-form button {padding:12px;border-radius:8px;border:none;background:#0000FF;color:#fff;font-weight:700;cursor:pointer;transition:0.3s;}
+.comments-form button:hover {background:#00FFFF;color:#000;}
+.comments-list {margin-top:25px;display:flex;flex-direction:column;gap:15px;}
+.comment {background:#111;padding:15px;border-radius:10px;}
+footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;color:#fff;}
+@media(max-width:768px){header h1{font-size:2.8em;}.links a{font-size:1.4em;}section h2{font-size:2em;}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>TuWebExpress Huánuco</h1>
+<div class="links">
+<a href="https://www.facebook.com/TuwebexpressHuanuco" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
+<a href="https://www.instagram.com/tuwebexpress_huanuco" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+<a href="https://wa.me/51981601075" target="_blank"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+<a href="mailto:tuwebexpresshuanuco2025@gmail.com"><i class="fas fa-envelope"></i>Correo</a>
+</div>
+<div class="contact">Teléfono: <a href="tel:+51981601075">981601075</a> | Correo: <a href="mailto:tuwebexpresshuanuco2025@gmail.com">tuwebexpresshuanuco2025@gmail.com</a></div>
+</header>
+
+<section>
+<h2>Sobre Nosotros</h2>
+<p>En <strong>TuWebExpress Huánuco</strong> nos especializamos en crear páginas web profesionales para empresas, emprendedores y servicios de ingeniería. Nuestra misión es destacar tu negocio con un diseño elegante, moderno y funcional que impacte a tus clientes.</p>
+</section>
+
+<section>
+<h2>Servicios</h2>
+<p>Ofrecemos sitios web personalizados, adaptados a tus necesidades, con diseño responsivo, integración de redes sociales, botones de contacto directo, optimización móvil y soporte profesional.</p>
+<a class="button" href="https://wa.me/51981601075" target="_blank">Solicitar mi página web</a>
+</section>
+
+<section>
+<h2>Portafolio</h2>
+<p>Visualiza nuestros proyectos anteriores y observa cómo cada página es única, minimalista y profesional, diseñada para mejorar la presencia online de nuestros clientes.</p>
+</section>
+
+<section>
+<h2>Comentarios</h2>
+<form class="comments-form" id="commentForm">
+<input type="text" id="name" placeholder="Tu nombre" required>
+<textarea id="message" rows="4" placeholder="Tu comentario" required></textarea>
+<button type="submit">Enviar comentario</button>
+</form>
+<div class="comments-list" id="commentsList"></div>
+</section>
+
+<section>
+<h2>Contacto</h2>
+<p>¿Quieres tu página web lista hoy mismo? Contáctanos y te ayudaremos a tener tu negocio online de manera rápida y profesional.</p>
+<p class="contact">
+<a href="tel:+51981601075">📞 981601075</a> |
+<a href="https://wa.me/51981601075" target="_blank">💬 WhatsApp</a> |
+<a href="mailto:tuwebexpresshuanuco2025@gmail.com">✉️ Correo</a>
+</p>
+</section>
+
+<footer>
+&copy; 2025 TuWebExpress Huánuco. Todos los derechos reservados.
+</footer>
+
+<script>
+const form = document.getElementById('commentForm');
+const commentsList = document.getElementById('commentsList');
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
+comments.forEach(c => addCommentToDOM(c.name, c.message));
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if(name && message){
+        const comment = {name, message};
+        comments.unshift(comment);
+        localStorage.setItem('comments', JSON.stringify(comments));
+        addCommentToDOM(name, message, true);
+        form.reset();
+    }
+});
+
+function addCommentToDOM(name, message, prepend=false){
+    const commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment');
+    commentDiv.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+    if(prepend){
+        commentsList.prepend(commentDiv);
+    } else {
+        commentsList.appendChild(commentDiv);
+    }
+}
+</script>
+
+</body>
+</html>Child(commentDiv);
+    }
+}
+</script>
+
+</body>
+</html>
