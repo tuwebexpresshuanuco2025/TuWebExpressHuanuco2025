@@ -27,7 +27,8 @@ section p {font-size:1.15em;line-height:1.8;margin-bottom:30px;opacity:1;color:#
 .comments-form button {padding:12px;border-radius:8px;border:none;background:#0000FF;color:#fff;font-weight:700;cursor:pointer;transition:0.3s;}
 .comments-form button:hover {background:#00FFFF;color:#000;}
 .comments-list {margin-top:25px;display:flex;flex-direction:column;gap:15px;}
-.comment {background:#111;padding:15px;border-radius:10px;word-break:break-word;}
+.comment {background:#111;padding:15px;border-radius:10px;word-break:break-word;display:flex;justify-content:space-between;align-items:flex-start;}
+.comment button.delete-btn {background:#FF0000;color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;align-self:center;}
 footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;color:#fff;}
 @media(max-width:768px){header h1{font-size:2.8em;}.links a{font-size:1.4em;}section h2{font-size:2em;}}
 .alert {padding:10px 20px;background:#00FFFF;color:#000;border-radius:8px;margin-bottom:15px;display:none;}
@@ -90,11 +91,7 @@ footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;colo
 <script src="index.js" defer></script>
 
 </body>
-</html>rta
-const form = document.getElementById('commentForm');
-const commentsList = document.getElementById('commentsList');
-const alertBox = document.getElementById('alert');
-let comments = JSON.parse(localStorage.getItem('comments')) || [];
+</html>ge.getItem('comments')) || [];
 
 function showAlert(message, duration=3000){
     alertBox.innerText = message;
