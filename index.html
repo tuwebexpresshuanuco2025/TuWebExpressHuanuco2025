@@ -19,7 +19,7 @@ header h1 {font-size:3.8em;font-weight:700;margin-bottom:20px;position:relative;
 .contact a:hover {color:#00FFFF;transform:scale(1.1);}
 section {padding:80px 20px;max-width:1000px;margin:0 auto;position:relative;z-index:1;}
 section h2 {font-size:2.8em;margin-bottom:25px;text-transform:uppercase;letter-spacing:1px;animation:fadeInUp 2s;color:#0000FF;}
-section p {font-size:1.15em;line-height:1.8;margin-bottom:30px;opacity:1;}
+section p {font-size:1.15em;line-height:1.8;margin-bottom:30px;opacity:1;color:#fff;}
 .button {display:inline-block;padding:15px 30px;border:2px solid #0000FF;color:#0000FF;text-decoration:none;font-weight:700;transition:0.5s;border-radius:10px;}
 .button:hover {background:#0000FF;color:#fff;transform:scale(1.1) rotate(-2deg);}
 .comments-form {display:flex;flex-direction:column;gap:15px;margin-top:30px;}
@@ -27,9 +27,10 @@ section p {font-size:1.15em;line-height:1.8;margin-bottom:30px;opacity:1;}
 .comments-form button {padding:12px;border-radius:8px;border:none;background:#0000FF;color:#fff;font-weight:700;cursor:pointer;transition:0.3s;}
 .comments-form button:hover {background:#00FFFF;color:#000;}
 .comments-list {margin-top:25px;display:flex;flex-direction:column;gap:15px;}
-.comment {background:#111;padding:15px;border-radius:10px;}
+.comment {background:#111;padding:15px;border-radius:10px;word-break:break-word;}
 footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;color:#fff;}
 @media(max-width:768px){header h1{font-size:2.8em;}.links a{font-size:1.4em;}section h2{font-size:2em;}}
+.alert {padding:10px 20px;background:#00FFFF;color:#000;border-radius:8px;margin-bottom:15px;display:none;}
 </style>
 </head>
 <body>
@@ -63,6 +64,7 @@ footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;colo
 
 <section>
 <h2>Comentarios</h2>
+<div class="alert" id="alert"></div>
 <form class="comments-form" id="commentForm">
 <input type="text" id="name" placeholder="Tu nombre" required>
 <textarea id="message" rows="4" placeholder="Tu comentario" required></textarea>
@@ -86,23 +88,17 @@ footer {padding:40px 20px;background:#111;text-align:center;font-size:0.9em;colo
 </footer>
 
 <script>
+// Manejo de comentarios con validación y alerta
 const form = document.getElementById('commentForm');
 const commentsList = document.getElementById('commentsList');
+const alertBox = document.getElementById('alert');
 let comments = JSON.parse(localStorage.getItem('comments')) || [];
-comments.forEach(c => addCommentToDOM(c.name, c.message));
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const message = document.getElementById('message').value.trim();
-    if(name && message){
-        const comment = {name, message};
-        comments.unshift(comment);
-        localStorage.setItem('comments', JSON.stringify(comments));
-        addCommentToDOM(name, message, true);
-        form.reset();
-    }
-});
+function showAlert(message, duration=3000){
+    alertBox.innerText = message;
+    alertBox.style.display = 'block';
+    setTimeout(()=>{alertBox.style.display='none';}, duration);
+}
 
 function addCommentToDOM(name, message, prepend=false){
     const commentDiv = document.createElement('div');
@@ -114,12 +110,25 @@ function addCommentToDOM(name, message, prepend=false){
         commentsList.appendChild(commentDiv);
     }
 }
-</script>
 
-</body>
-</html>Child(commentDiv);
+// Cargar comentarios existentes
+comments.forEach(c => addCommentToDOM(c.name, c.message));
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if(!name || !message){
+        showAlert('Por favor completa todos los campos');
+        return;
     }
-}
+    const comment = {name, message};
+    comments.unshift(comment);
+    localStorage.setItem('comments', JSON.stringify(comments));
+    addCommentToDOM(name, message, true);
+    form.reset();
+    showAlert('Comentario enviado correctamente');
+});
 </script>
 
 </body>
