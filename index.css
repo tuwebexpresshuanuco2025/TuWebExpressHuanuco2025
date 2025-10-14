@@ -7,7 +7,6 @@ body, html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-
 header {
     display: flex;
     flex-direction: column;
@@ -18,7 +17,6 @@ header {
     position: relative;
     overflow: hidden;
 }
-
 header::before {
     content: '';
     position: absolute;
@@ -32,23 +30,19 @@ header::before {
     transform: scale(1.1);
     animation: zoom 20s linear infinite;
 }
-
 @keyframes zoom {
-    0% { transform: scale(1.1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1.1); }
+    0% {transform: scale(1.1);}
+    50% {transform: scale(1.15);}
+    100% {transform: scale(1.1);}
 }
-
 header h1 {
     font-size: 3.8em;
     font-weight: 700;
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
-    animation: fadeInDown 2s ease-out;
     color: #0000FF;
 }
-
 .links a {
     color: #fff;
     text-decoration: none;
@@ -60,28 +54,22 @@ header h1 {
     transition: 0.3s;
     z-index: 1;
 }
-
 .links a i {
     margin-right: 10px;
-    font-size: 1.7em;
 }
-
 .links a:hover {
     color: #00FFFF;
     transform: scale(1.2) rotate(-2deg);
 }
-
 .contact a {
     color: #fff;
     text-decoration: none;
     transition: 0.3s;
 }
-
 .contact a:hover {
     color: #00FFFF;
     transform: scale(1.1);
 }
-
 section {
     padding: 80px 20px;
     max-width: 1000px;
@@ -89,24 +77,19 @@ section {
     position: relative;
     z-index: 1;
 }
-
 section h2 {
     font-size: 2.8em;
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    animation: fadeInUp 2s;
     color: #0000FF;
 }
-
 section p {
     font-size: 1.15em;
     line-height: 1.8;
     margin-bottom: 30px;
-    opacity: 1;
     color: #fff;
 }
-
 .button {
     display: inline-block;
     padding: 15px 30px;
@@ -117,28 +100,25 @@ section p {
     transition: 0.5s;
     border-radius: 10px;
 }
-
 .button:hover {
     background: #0000FF;
     color: #fff;
     transform: scale(1.1) rotate(-2deg);
 }
-
 .comments-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 30px;
 }
-
-.comments-form input, .comments-form textarea {
+.comments-form input,
+.comments-form textarea {
     padding: 10px;
     border-radius: 8px;
     border: none;
     resize: none;
     font-family: 'Montserrat', sans-serif;
 }
-
 .comments-form button {
     padding: 12px;
     border-radius: 8px;
@@ -149,19 +129,16 @@ section p {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .comments-form button:hover {
     background: #00FFFF;
     color: #000;
 }
-
 .comments-list {
     margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
 .comment {
     background: #111;
     padding: 15px;
@@ -171,7 +148,6 @@ section p {
     justify-content: space-between;
     align-items: flex-start;
 }
-
 .comment button.delete-btn {
     background: #FF0000;
     color: #fff;
@@ -181,7 +157,6 @@ section p {
     cursor: pointer;
     align-self: center;
 }
-
 footer {
     padding: 40px 20px;
     background: #111;
@@ -189,7 +164,6 @@ footer {
     font-size: 0.9em;
     color: #fff;
 }
-
 .alert {
     padding: 10px 20px;
     background: #00FFFF;
@@ -197,6 +171,11 @@ footer {
     border-radius: 8px;
     margin-bottom: 15px;
     display: none;
+}
+@media(max-width:768px) {
+    header h1 { font-size: 2.8em; }
+    .links a { font-size: 1.4em; }
+    section h2 { font-size: 2em; }
 }
 
 @media(max-width:768px) {
